@@ -1,0 +1,41 @@
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 14
+font-feature = -calt, -liga, -dlig
+
+background = #122222
+background-opacity = 0.90
+background-blur = true
+#theme = Retro Legends
+theme = Gruvbox Dark
+
+macos-icon = retro
+ split-divider-color = #EC5B2B
+# split-divider-color = #89FC6E
+
+focus-follows-mouse = true
+
+
+
+
+
+keybind = ctrl+/=start_search
+keybind = opt+h=goto_split:left
+keybind = opt+j=goto_split:down
+keybind = opt+k=goto_split:up
+keybind = opt+l=goto_split:right
+
+keybind = ctrl+r>t=prompt_tab_title
+keybind = ctrl+r>w=prompt_surface_title
+
+keybind = ctrl+1=goto_tab:1
+keybind = ctrl+2=goto_tab:2
+keybind = ctrl+3=goto_tab:3
+keybind = ctrl+4=goto_tab:4
+keybind = ctrl+5=goto_tab:5
+keybind = ctrl+1=goto_tab:1
+
+keybind = opt+arrow_left=goto_split:left
+keybind = opt+arrow_down=goto_split:down
+keybind = opt+arrow_up=goto_split:up
+keybind = opt+arrow_right=goto_split:right
+
