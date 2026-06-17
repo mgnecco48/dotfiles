@@ -2,6 +2,7 @@
 
 ## Repository Structure
 
+```text
 dotfiles/
 |-- _.hammerspoon/_
 | |-- init.lua
@@ -30,3 +31,4 @@ dotfiles/
 |   |-- theme.toml
 |   `-- yazi.toml
 `-- _README.md_
+```
