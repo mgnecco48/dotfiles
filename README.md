@@ -2,27 +2,26 @@
 
 ## Repository Structure
 
-```text
 dotfiles/
-|-- *.hammerspoon/*
-|   |-- init.lua
-|   `-- Spoons/
+|-- _.hammerspoon/_
+| |-- init.lua
+| `-- Spoons/
 |-- *ghostty/*
 |   `-- config
-|-- *nvim/*
-|   |-- after/
-|   |   |-- ftplugin/
-|   |   `-- queries/
+|-- _nvim/_
+| |-- after/
+| | |-- ftplugin/
+| | `-- queries/
 |   |-- lua/
 |   |   `-- config/
-|   |       `-- plugins/
+| | `-- plugins/
 |   |-- spell/
 |   |-- init.lua
 |   `-- README.md
-|-- *opencode/*
-|   |-- bun.lock
-|   |-- package-lock.json
-|   `-- package.json
+|-- _opencode/_
+| |-- bun.lock
+| |-- package-lock.json
+| `-- package.json
 |-- *yazi/*
 |   |-- plugins/
 |   |-- init.lua
@@ -30,5 +29,4 @@ dotfiles/
 |   |-- package.toml
 |   |-- theme.toml
 |   `-- yazi.toml
-`-- *README.md*
-```
+`-- _README.md_
