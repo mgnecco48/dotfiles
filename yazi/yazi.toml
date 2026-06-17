@@ -1,18 +1,7 @@
+[mgr]
+show_hidden = true
+
 [opener]
 edit = [
-  { run = "${EDITOR:-nvim} %s", desc = "$EDITOR", for = "unix", block = true },
-]
-
-[mgr]
-ratio = [0, 1, 6]
-
-[plugin]
-
-prepend_previewers = [
-  { url = "*.csv", run = "rich-preview" },   # for csv files
-  { url = "*.md", run = "rich-preview" },    # for markdown (.md) files
-  { url = "*.rst", run = "rich-preview" },   # for restructured text (.rst) files
-  { url = "*.ipynb", run = "rich-preview" }, # for jupyter notebooks (.ipynb)
-  { url = "*.json", run = "rich-preview" },  # for json (.json) files
-  #    { url = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
-]
+    { run = "${EDITOR:-nvim} %s", desc = "$EDITOR", for = "unix", block = true }
+    ]
