@@ -25,20 +25,20 @@ scrollbar {
 .box-wrapper {
   background: alpha(@base, 0.92);
   padding: 18px;
-  border: 3px solid alpha(@border, 0.65);
-  border-radius: 18px;
+  border: 1px solid alpha(@border, 0.65);
+  border-radius: 3px;
   box-shadow: 0 18px 46px alpha(black, 0.45);
 }
 
 .box {
-  border-radius: 14px;
+  border-radius: 3px;
 }
 
 .search-container {
   background: alpha(@background, 0.76);
   padding: 12px 14px;
   border: 1px solid alpha(@border, 0.32);
-  border-radius: 13px;
+  border-radius: 3px;
 }
 
 .input placeholder {
@@ -65,7 +65,7 @@ scrollbar {
 }
 
 child {
-  border-radius: 12px;
+  border-radius: 3px;
 }
 
 child:hover {
@@ -74,7 +74,6 @@ child:hover {
 
 child:selected {
   background: alpha(@selected-text, 0.16);
-  box-shadow: inset 3px 0 @selected-text;
 }
 
 child:selected .item-box * {
@@ -110,9 +109,9 @@ child:selected .item-box * {
   background: alpha(@background, 0.7);
   padding: 10px;
   margin-top: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 .preview {
-  border-radius: 12px;
+  border-radius: 3px;
 }

@@ -1,0 +1,20 @@
+# eza
+export EZA_COLORS="di=2;96:fi=3;37"
+alias ls='eza --grid  --icons --git --group-directories-first --sort=type'
+alias lsa='ls -a'
+alias lst='eza --tree --level=2 --icons --git --group-directories-first --sort=type'
+
+# Directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias conf='cd ~/.config'
+alias dot='cd ~/dotfiles'
+
+# Tools
+alias oc='opencode --port'
+alias vim='nvim'
+
+# Git
+alias gcm='git commit -m'
+ 

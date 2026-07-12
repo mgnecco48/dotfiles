@@ -9,7 +9,7 @@ background-blur = true
 theme = Gruvbox Dark
 
 macos-icon = retro
- split-divider-color = #EC5B2B
+split-divider-color = #EC5B2B
 # split-divider-color = #89FC6E
 
 focus-follows-mouse = true
