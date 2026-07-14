@@ -1,5 +1,5 @@
 # eza
-export EZA_COLORS="di=2;96:fi=3;37"
+export EZA_COLORS="di=96:fi=3;37:ln=95"
 alias ls='eza --grid  --icons --git --group-directories-first --sort=type'
 alias lsa='ls -a'
 alias lst='eza --tree --level=2 --icons --git --group-directories-first --sort=type'

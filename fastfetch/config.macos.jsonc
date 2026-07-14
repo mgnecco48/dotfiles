@@ -5,7 +5,7 @@
     "source": "macos",
     "color": { "1": "green" },
     "padding": {
-      "top": 2,
+      "top": 5,
       "right": 6,
       "left": 2
     }
@@ -14,7 +14,7 @@
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+      "format": "\u001b[90m┌──────────────────────────Hardware──────────────────────────┐"
     },
     {
       "type": "host",
@@ -23,43 +23,46 @@
     },
     {
       "type": "cpu",
-      "key": "│ ├",
+      "key": "│ ├ CPU",
       "showPeCoreCount": true,
       "keyColor": "green"
     },
     {
       "type": "gpu",
-      "key": "│ ├",
+      "key": "│ ├ GPU",
       "keyColor": "green"
     },
     {
       "type": "display",
-      "key": "│ ├󱄄",
-      "keyColor": "green"
+      "key": "│ ├󱄄 Display",
+      "keyColor": "green",
+      "format": "{width}x{height} @ {refresh-rate} [{type}]"
     },
     {
       "type": "disk",
-      "key": "│ ├󰋊",
-      "keyColor": "green"
+      "key": "│ ├󰋊 Disk",
+      "keyColor": "green",
+      "format": "{size-used} / {size-total} ({size-percentage})"
     },
     {
       "type": "memory",
-      "key": "│ ├",
+      "key": "│ ├ Memory",
       "keyColor": "green"
     },
     {
       "type": "battery",
-      "key": "└ └󰁹",
-      "keyColor": "green"
+      "key": "└ └󰁹 Battery",
+      "keyColor": "green",
+      "format": "{capacity} ({time-formatted})"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└────────────────────────────────────────────────────────────┘"
     },
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+      "format": "\u001b[90m┌──────────────────────────Software──────────────────────────┐"
     },
     {
       "type": "os",
@@ -68,48 +71,48 @@
     },
     {
       "type": "kernel",
-      "key": "│ ├",
+      "key": "│ ├ Kernel",
       "keyColor": "blue"
     },
     {
       "type": "de",
-      "key": "│ ├",
+      "key": "│ ├ DE",
       "keyColor": "blue"
     },
     {
       "type": "terminal",
-      "key": "│ ├",
+      "key": "│ ├ Terminal",
       "keyColor": "blue"
     },
     {
       "type": "shell",
-      "key": "│ ├",
+      "key": "│ ├ Shell",
       "keyColor": "blue"
     },
     {
       "type": "packages",
-      "key": "│ ├󰏖",
+      "key": "│ ├󰏖 Packages",
       "keyColor": "blue"
     },
     {
       "type": "command",
-      "key": "│ ├󰸌",
+      "key": "│ ├󰸌 Theme",
       "keyColor": "blue",
-      "text": "mode=$(defaults read -g AppleInterfaceStyle 2>/dev/null || echo Light); echo \"$mode \\e[38m●\\e[37m●\\e[36m●\\e[35m●\\e[34m●\\e[33m●\\e[32m●\\e[31m●\""
+      "text": "mode=$(defaults read -g AppleInterfaceStyle 2>/dev/null || echo Light); printf '%s \\033[38m●\\033[37m●\\033[36m●\\033[35m●\\033[34m●\\033[33m●\\033[32m●\\033[31m●\\033[0m\\n' \"$mode\""
     },
     {
       "type": "terminalfont",
-      "key": "└ └",
+      "key": "└ └ Font",
       "keyColor": "blue"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└────────────────────────────────────────────────────────────┘"
     },
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌────────────────Age / Uptime / Update───────────────┐"
+      "format": "\u001b[90m┌───────────────────Age / Uptime / Update────────────────────┐"
     },
     {
       "type": "command",
@@ -130,7 +133,7 @@
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└────────────────────────────────────────────────────────────┘"
     },
     "break"
   ]
