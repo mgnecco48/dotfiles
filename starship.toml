@@ -1,10 +1,14 @@
 add_newline = true
 command_timeout = 200
-format = "$directory$git_branch$git_status$python$character"
+format = "$directory$git_branch$git_status$python$hostname$character"
 
 [character]
 error_symbol = "[✗](bold red)"
 success_symbol = "[❯](bold green)"
+
+[hostname]
+ssh_only = true
+format = "[$hostname](italic fg:#ff8700) "
 
 [directory]
 truncation_length = 3

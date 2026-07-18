@@ -1,9 +1,17 @@
 {
     "$schema": "https://opencode.ai/tui.json",
-    "theme": "system",
+    "theme": "lucent-org",
     "keybinds": {
         "app_exit": "ctrl+e",
-        "app_help": "ctrl+h",
-        "session_list": "ctrl+s"
+        "help_show": "ctrl+h",
+        "session_list": "ctrl+s",
+        "session_rename": "ctrl+r",
+        "variant_list": "ctrl+v",
+    },
+    "attention": {
+        "enabled": true,
+        "notifications": true,
+        "sound": false,
+        "volume": 0.4
     }
 }

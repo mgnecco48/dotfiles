@@ -1,4 +1,4 @@
-refresh() {
+restart() {
   if [ -n "${BASH_VERSION:-}" ]; then
     exec bash
   elif [ -n "${ZSH_VERSION:-}" ]; then
