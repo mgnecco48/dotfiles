@@ -1,0 +1,18 @@
+{
+  "$schema": "https://pg-language-server.com/latest/schema.json",
+  "format": {
+    "enabled": false
+  },
+  "typecheck": {
+    "enabled": false
+  },
+  "plpgsqlCheck": {
+    "enabled": false
+  },
+  "pglinter": {
+    "enabled": false
+  },
+  "splinter": {
+    "enabled": false
+  }
+}
