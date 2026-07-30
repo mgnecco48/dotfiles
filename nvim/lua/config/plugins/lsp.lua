@@ -49,29 +49,13 @@ return {
 
     config = function()
       local capabilities = require("blink.cmp").get_lsp_capabilities()
-      local servers = {
-        "pyright",
-        "dockerls",
-        "sqlls",
-        "jsonls",
-        "yamlls",
-        "bashls",
-        "marksman",
-        "taplo",
-        "hyprls",
-        "vimls",
-        "gopls",
-        "jdtls",
-        "vtsls",
+
+      --- adding blink capabilities to  all servers.
+      vim.lsp.config["*"] = {
+        capabilities = capabilities,
       }
-
-      --- adding blink capabilities to other servers.
-      for _, server in ipairs(servers) do
-        vim.lsp.config[server] = {
-          capabilities = capabilities,
-        }
-      end
-
+      --- Special configd for certain servers
+      --- Python, mainly for the jupyter notebooks to work
       local function python_path()
         if vim.env.CONDA_PREFIX then
           return vim.env.CONDA_PREFIX .. "/bin/python"
@@ -85,7 +69,6 @@ return {
       end
 
       vim.lsp.config["pyright"] = {
-        capabilities = capabilities,
         settings = {
           python = {
             pythonPath = python_path(),
@@ -128,33 +111,37 @@ return {
         },
       }
 
+      -- Postgres fixes
+      vim.lsp.config["postgres_lsp"] = {
+        workspace_required = false,
+      }
+
       -- -- enabling lsp servers
       -- Usually would run somethin like 'vim.lsp.enable("lua_ls")', but since we have the mason-lspconfig plugin, that is taken care of for us.
 
-      -- keymap for formating the file without saving
-      vim.keymap.set("n", "<leader>g", function()
-        vim.lsp.buf.format()
-      end, { desc = "Format file" })
       -- configuring "Autocommands"
       vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("my.lsp", {}),
+        group = vim.api.nvim_create_augroup("my.lsp", { clear = true }),
         callback = function(args)
           local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+          local bufnr = args.buf
 
-          if
-              not client:supports_method("textDocument/willSaveWaitUntil")
-              and client:supports_method("textDocument/formatting")
-          then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
-              buffer = args.buf,
-              callback = function()
-                vim.lsp.buf.format({
-                  bufnr = args.buf,
-                  id = client.id,
-                })
-              end,
+          local map = function(mode, lhs, rhs, desc)
+            vim.keymap.set(mode, lhs, rhs, {
+              buffer = bufnr,
+              desc = desc,
             })
+          end
+
+          map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+          map("n", "gr", vim.lsp.buf.references, "Go to references")
+          map("n", "gI", vim.lsp.buf.implementation, "Go to implementation")
+          map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+          map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
+          map("n", "K", vim.lsp.buf.hover, "Hover documentation")
+
+          if client:supports_method("textDocument/inlayHint") then
+            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
           end
         end,
       })

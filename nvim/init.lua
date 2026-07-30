@@ -9,6 +9,10 @@ vim.g.python3_host_prog = "/opt/miniconda3/envs/nvim-jupyter/bin/python"
 -- this is specific to my machine, change it to the path of your Python 3 interpreter
 -- if you want to use Molten's Jupyter support.
 
+-- disabling netrw because it conflicts with neotree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- plugins are managed via 'lazy.nvim'
 require("config.lazy")
 
@@ -39,6 +43,8 @@ vim.opt.linebreak = false
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 1
 vim.o.scrolloff = 10
+vim.opt.fillchars = { eob = " " }
+vim.o.laststatus = 3
 
 -- Syncs the system clipboard to Nvim's allowing to copy and paste to/from other applications
 vim.o.clipboard = "unnamedplus"
@@ -49,6 +55,9 @@ vim.o.smartcase = true
 
 -- KEYMAPS
 require("config.special_keymaps") --- Separate file for complex keymaps that would make this config too messy
+
+-- Reloading the config file (this file)
+vim.keymap.set("n", "<leader>,", "<cmd>source $MYVIMRC<CR>", { desc = "Reload config" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
@@ -79,6 +88,9 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 ---- Escaping the terminal mode with an easy bind.
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+---- Toggling Neotree
+vim.keymap.set("n", "<leader>-", "<cmd>Neotree toggle<CR>")
+
 ---- Diagnostics config.
 vim.diagnostic.config({
   virtual_text = {
@@ -105,12 +117,6 @@ end, { desc = "Previous diagnostic" })
 
 --- Database work with Dadbod
 vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<CR>", { desc = "Toggle database UI" })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "dbout",
-  callback = function()
-    vim.opt_local.foldenable = false
-  end,
-})
 
 --- Resourcing Snippets file to play with new ones
 vim.keymap.set(

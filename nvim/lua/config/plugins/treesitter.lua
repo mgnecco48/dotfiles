@@ -19,6 +19,11 @@ return {
         "vim",
         "go",
         "java",
+        "javascript",
+        "typescript",
+        "tsx",
+        "html",
+        "css",
       }
       require("nvim-treesitter").setup({
         -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)

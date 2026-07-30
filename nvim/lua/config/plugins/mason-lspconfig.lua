@@ -3,6 +3,9 @@ return {
     "mason-org/mason-lspconfig.nvim",
 
     opts = {
+      automatic_enable = {
+        exclude = { "jdtls", "sqlls" },
+      },
       ensure_installed = {
         "pyright",
         "lua_ls",
@@ -18,6 +21,8 @@ return {
         "gopls",
         "jdtls",
         "vtsls",
+        "tailwindcss",
+        "postgres_lsp",
       },
     },
     dependencies = {

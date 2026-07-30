@@ -8,20 +8,6 @@ return {
   opts = {
     ensure_installed = {
 
-      -- LSP servers
-      "pyright",
-      "lua-language-server",
-      "bash-language-server",
-      "dockerfile-language-server",
-      "yaml-language-server",
-      "json-lsp",
-      "marksman",
-      "taplo",
-      "sqlls",
-      "hyprls",
-      "vimls",
-      "gopls",
-
       -- formatters
       "black",
       "isort",
@@ -33,6 +19,8 @@ return {
       "prettier",
       "goimports",
       "google-java-format",
+      "pgformatter",
+      "dockerfmt",
 
       -- linters
       "shellcheck",

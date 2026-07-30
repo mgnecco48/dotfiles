@@ -41,18 +41,22 @@ return {
       },
       snippets = { preset = "luasnip" },
       sources = {
-        default = { "snippets", "lsp", "dadbod", "path", "buffer" },
-        -- per_filetype = {
-        --   sql = { "snippets", "dadbod", "buffer" },
-        --   mysql = { "snippets", "dadbod", "buffer" },
-        --   psql = { "snippets", "dadbod", "buffer" },
-        -- },
+        default = { "snippets", "lsp", "path", "buffer" },
+        per_filetype = {
+          sql = { "dadbod", "snippets", "lsp", "buffer" },
+          mysql = { "dadbod", "snippets", "lsp", "buffer" },
+          plsql = { "dadbod", "snippets", "lsp", "buffer" },
+        },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
         },
       },
 
       fuzzy = { implementation = "lua" },
+      cmdline = {
+        keymap = { preset = "inherit" },
+        completion = { menu = { auto_show = true } },
+      },
     },
 
     opts_extend = { "sources.default" },
