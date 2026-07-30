@@ -80,10 +80,11 @@ vim.keymap.set("n", "<C-Up>", "<cmd>resize +3<CR>", { desc = "Increase split hei
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -3<CR>", { desc = "Decrease split height" })
 
 ---- Moving inbetween nvim windows, easier than the default
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
+--- (This is commented because im using now the tmux-navigator plugin so it would interfere)
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 
 ---- Escaping the terminal mode with an easy bind.
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
