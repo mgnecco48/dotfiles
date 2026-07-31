@@ -1,6 +1,3 @@
-#Convient
-hash -d config="$HOME/.config"
-
 # eza
 export EZA_COLORS="di=96:fi=3;37:ln=95"
 alias ls='eza --grid  --icons --git --group-directories-first --sort=type'
@@ -18,8 +15,7 @@ alias dot='cd ~/dotfiles'
 alias oc='opencode --port'
 alias vim='nvim'
 alias t='tmux attach || tmux new -s "NEW SESSION"'
-alias -g tnew='tmux new -s'
-
+alias tnew='tmux new -s'
 
 # Git
 alias gcm='git commit -m' 

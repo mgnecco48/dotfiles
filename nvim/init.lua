@@ -1,6 +1,7 @@
 -- ========================
 -- = MARTIN GNECCO CONFIG =
 -- ========================
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -90,7 +91,10 @@ vim.keymap.set("n", "<C-Down>", "<cmd>resize -3<CR>", { desc = "Decrease split h
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 ---- Toggling Neotree
-vim.keymap.set("n", "<leader>-", "<cmd>Neotree toggle<CR>")
+vim.keymap.set("n", "<leader>-", "<cmd>Neotree toggle<CR>", { desc = "Toggle Neotree side bar" })
+
+--- TODO navigation
+vim.keymap.set("n", "<leader>todo", "<cmd>TodoLocList<CR>", { desc = "Open Todos in Loc List" })
 
 ---- Diagnostics config.
 vim.diagnostic.config({

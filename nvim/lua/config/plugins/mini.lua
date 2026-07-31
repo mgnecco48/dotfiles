@@ -6,6 +6,12 @@ return {
       -- statusline.setup({ use_icons = true })
       require("mini.icons").setup() -- use default config
       require("mini.surround").setup()
+      -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      -- Examples:
+      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+      -- - sd'   - [S]urround [D]elete [']quotes
+      -- - sr)'  - [S]urround [R]eplace [)] [']
+
       require("mini.indentscope").setup({
         symbol = "▏",
         -- symbol = "│",
@@ -24,6 +30,11 @@ return {
         -- better deal with markdown code blocks
         markdown = true,
       })
+      require("mini.ai").setup()
+      -- Examples:
+      --  - va)  - [V]isually select [A]round [)]paren
+      --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
+      --  - ci'  - [C]hange [I]nside [']quote
     end,
   },
 }

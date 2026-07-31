@@ -11,7 +11,7 @@ return {
         sage = "#43cd80",
       }
 
-      local frame_ui = colors.sage
+      local frame_ui = colors.electric_cyan
 
       require("gruvbox").setup({
         overrides = {

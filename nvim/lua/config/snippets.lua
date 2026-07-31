@@ -25,7 +25,13 @@ for _, ft in ipairs({ "sql", "mysql", "postgres", "postgresql", "psql", "plsql",
 end
 
 ls.add_snippets("lua", {
-  s("key", fmt('vim.keymap.set("{}", "{}", "<cmd>{}<CR>")', { i(1, "n"), i(2), i(3) })),
+  s(
+    "key",
+    fmt(
+      'vim.keymap.set("{}", "{}", "<cmd>{}<CR>", {{desc = "{}"}})',
+      { i(1, "n"), i(2), i(3), i(4, "short description") }
+    )
+  ),
   s("ret", fmt("return {{\n  {}\n}}", { i(1) })),
 })
 
