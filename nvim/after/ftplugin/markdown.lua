@@ -1,24 +1,13 @@
-vim.opt_local.textwidth = 100 -- Wrap Markdown text at 160 columns when formatting.
-vim.opt_local.colorcolumn = "100" -- Show a visual guide at the 160-column limit.
+vim.opt_local.textwidth = 100 -- Use 100 columns as the width for manual formatting commands like gq.
+vim.opt_local.colorcolumn = "100" -- Show a visual guide at the 100-column limit.
 vim.opt_local.wrap = true -- Display long Markdown lines on multiple screen lines.
-vim.opt_local.linebreak = true -- Break wrapped screen lines at word boundaries.
-vim.opt_local.breakindent = true -- Align visually wrapped lines with their original indentation.
-vim.opt_local.formatoptions:remove("l") -- Reformat existing long lines instead of leaving them unchanged.
-vim.opt_local.formatoptions:append("t") -- Auto-wrap plain text while typing.
-vim.opt_local.formatoptions:append("q") -- Allow gq to format comments and list markers.
-vim.opt_local.formatoptions:append("n") -- Preserve numbered-list indentation when formatting.
-vim.opt_local.formatoptions:append("r") -- Continue list markers after pressing Enter in insert mode.
-vim.opt_local.formatoptions:append("o") -- Continue list markers after opening a new line with o or O.
-vim.opt_local.formatoptions:append("c") -- Format comments
-vim.opt_local.comments = {
-  "b:-",
-  "b:*",
-  "b:+",
-  "n:>",
-}
+vim.opt_local.linebreak = true -- Prefer wrapping at word boundaries instead of in the middle of words.
+vim.opt_local.breakindent = true -- Indent visually wrapped lines to match the start of the original line.
+vim.opt_local.breakindentopt = "list:-1,sbr" -- Align wrapped lines after list markers, with showbreak before the indent.
+vim.opt_local.formatoptions:remove({ "t", "a" }) -- Disable automatic hard-wrapping while typing.
 vim.opt_local.spell = true -- Enable spell checking for Markdown buffers.
 vim.opt_local.scrolloff = 999 -- Keep the cursor vertically centered while scrolling.
-vim.opt_local.formatlistpat = [[^\s*\d\+[\]:.)}\t ]\s*]]
+vim.opt_local.showbreak = "↪" -- Mark visually wrapped lines without changing the file contents.
 ------------------------
 ---NOTEBOOK SPECIFIC ---
 ------------------------

@@ -7,14 +7,19 @@ return {
   ---@type render.md.UserConfig
   opts = {
     render_modes = true,
-    file_types = { "markdown", "quarto" },
+    file_types = { "markdown", "quarto", "text" },
+    anti_conceal = {
+      enabled = true,
+      disabled_modes = { "n" },
+    },
+
     heading = {
       width = "block",
-      min_width = 30,
-      border = true,
+      border = false,
+      inline = true,
     },
     dash = { width = 160 },
-    indent = { enabled = true },
+    indent = { enabled = true, skip_heading = true },
     code = {
       sign = false,
       language_border = " ",
@@ -24,9 +29,22 @@ return {
       left_pad = 2,
       right_pad = 2,
     },
+    checkbox = {
+      checked = { scope_highlight = "@markup.strikethrough" },
+      custom = {
+        important = {
+          raw = "[~]",
+          rendered = "󰓎 ",
+          highlight = "DiagnosticWarn",
+        },
+      },
+    },
     pipe_table = {
       preset = "round",
       cell = "trimmed",
+    },
+    bullet = {
+      icons = { "➤", "⤷", "•", "‣" },
     },
   },
 }

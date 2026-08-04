@@ -2,6 +2,9 @@
 -- = MARTIN GNECCO CONFIG =
 -- ========================
 
+-- TODO: Add keybindings to navigate the quickfix list
+-- TODO: Add a better way to see the diagnostics
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -56,6 +59,8 @@ vim.o.smartcase = true
 
 -- KEYMAPS
 require("config.special_keymaps") --- Separate file for complex keymaps that would make this config too messy
+-- Toggleing the Markdonw renderer plugin
+vim.keymap.set("n", "<leader>md", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle RenderMarkdown" })
 
 -- Reloading the config file (this file)
 vim.keymap.set("n", "<leader>,", "<cmd>source $MYVIMRC<CR>", { desc = "Reload config" })
@@ -149,5 +154,14 @@ require("config.snippets")
 -- Use ':Inspect' with the cursor on a word to see the highliting group,
 -- or ':InspectTree' for an "interactive" overview.
 vim.cmd([[hi @function.call.python guifg=yellow]])
+
+-- enabling custom folding for large files:
+-- Use expression-based folding
+vim.opt.foldmethod = "marker"
+vim.opt.foldmarker = "{{{,}}}"
+
+-- Prevent code from auto-collapsing when opening a new buffer
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 require("config.molten_config")
