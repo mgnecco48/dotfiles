@@ -2,9 +2,7 @@
 -- = MARTIN GNECCO CONFIG =
 -- ========================
 
--- TODO: Add keybindings to navigate the quickfix list
 -- TODO: Add a better way to see the diagnostics
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -49,6 +47,15 @@ vim.g.netrw_banner = 1
 vim.o.scrolloff = 10
 vim.opt.fillchars = { eob = " " }
 vim.o.laststatus = 3
+
+--- notifications system
+require("notify").setup({
+  background_colour = "#000000",
+  minimum_width = 25,
+  timeout = 1000,
+  stages = "slide",
+  merge_duplicates = true,
+})
 
 -- Syncs the system clipboard to Nvim's allowing to copy and paste to/from other applications
 vim.o.clipboard = "unnamedplus"
@@ -99,9 +106,14 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>-", "<cmd>Neotree toggle<CR>", { desc = "Toggle Neotree side bar" })
 
 --- TODO navigation
-vim.keymap.set("n", "<leader>todo", "<cmd>TodoLocList<CR>", { desc = "Open Todos in Loc List" })
+vim.keymap.set("n", "<leader>to", function()
+  local cwd = vim.fn.expand("%:h")
+  vim.cmd("TodoQuickFix cwd=" .. cwd)
+end, { desc = "Open Todos in Quickfix List" })
+-- The config for the working directory allows to be based on the current file, In the case that you moved to a different cwd than
+-- the one you entered vim from. ':h' also moved that one level up, so it will show the todos for the current file's directory.
 
----- Diagnostics config.
+---- Diagnostics confNig.
 vim.diagnostic.config({
   virtual_text = {
     prefix = "▎",
@@ -117,13 +129,14 @@ vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#83a598", bg = "#1f3
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#8ec07c", bg = "#24351f" })
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextOk", { fg = "#b8bb26", bg = "#2f3418" })
 
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
-vim.keymap.set("n", "]d", function()
-  vim.diagnostic.jump({ count = 1, float = true })
-end, { desc = "Next diagnostic" })
-vim.keymap.set("n", "[d", function()
-  vim.diagnostic.jump({ count = -1, float = true })
-end, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "<leader>di", function()
+  local diagnostics = vim.diagnostic.get(0)
+  if #diagnostics == 0 then
+    require("notify")("No diagnostics", "error", { title = "Diagnostics" })
+    return
+  end
+  vim.diagnostic.setloclist({ open = true })
+end, { desc = "Open diagnostics in loclist" })
 
 --- Database work with Dadbod
 vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<CR>", { desc = "Toggle database UI" })
@@ -135,6 +148,12 @@ vim.keymap.set(
   ":source ~/.config/nvim/lua/config/snippets.lua<CR>",
   { desc = "Reload snippets file" }
 )
+
+--- quickfix navigation
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Next quickfix item" })
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>", { desc = "Previous quickfix item" })
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "Close quickfix list" })
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "Open quickfix list" })
 
 ----
 

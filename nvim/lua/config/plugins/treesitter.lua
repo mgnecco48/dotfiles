@@ -24,6 +24,7 @@ return {
         "tsx",
         "html",
         "css",
+        "regex",
       }
       require("nvim-treesitter").setup({
         -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
