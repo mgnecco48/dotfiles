@@ -10,7 +10,7 @@ return {
     },
     config = function()
       require("autolist").setup()
-
+      -- TODO: Add the checkbox as a bullet type to cycle through
       vim.keymap.set("n", "<leader>[", "A- [ ] ", { desc = "Adding a checkbox" })
       vim.keymap.set("i", "<tab>", "<cmd>AutolistTab<cr>")
       vim.keymap.set("i", "<s-tab>", "<cmd>AutolistShiftTab<cr>")

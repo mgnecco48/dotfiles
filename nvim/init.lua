@@ -1,8 +1,7 @@
 -- ========================
 -- = MARTIN GNECCO CONFIG =
 -- ========================
-
--- TODO: Add a better way to see the diagnostics
+-- TODO: place the notifications config properly in its own file
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -50,12 +49,15 @@ vim.o.laststatus = 3
 
 --- notifications system
 require("notify").setup({
-  background_colour = "#000000",
-  minimum_width = 25,
+  background_colour = "#111333",
+  minimum_width = 15,
   timeout = 1000,
   stages = "slide",
+  top_down = false,
   merge_duplicates = true,
 })
+
+vim.notify = require("notify")
 
 -- Syncs the system clipboard to Nvim's allowing to copy and paste to/from other applications
 vim.o.clipboard = "unnamedplus"
