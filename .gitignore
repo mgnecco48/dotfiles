@@ -1,1 +1,26 @@
+# OS clutter
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+
+# Editor swap/backup files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs/cache/temp
+*.log
+.cache/
+tmp/
+temp/
+
+# Dependencies/build artifacts
+node_modules/
+dist/
+build/
+
 tmux/plugins/
