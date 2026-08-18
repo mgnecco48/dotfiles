@@ -4,6 +4,7 @@ return {
   opts = {
     keywords = {
       ASK = { icon = "?", color = "#ff83fa", alt = { "QUESTION" } },
+      TODO = { icon = " ", color = "#00e5ee" },
     },
   },
 }

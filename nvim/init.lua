@@ -39,8 +39,10 @@ vim.opt.tabstop = 4
 vim.opt.smartindent = true
 vim.o.splitright = true
 vim.o.splitbelow = true
-vim.opt.wrap = false
-vim.opt.linebreak = false
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.showbreak = "↪"
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 1
 vim.o.scrolloff = 10
@@ -71,10 +73,22 @@ require("config.special_keymaps") --- Separate file for complex keymaps that wou
 -- Toggleing the Markdonw renderer plugin
 vim.keymap.set("n", "<leader>md", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle RenderMarkdown" })
 
--- Reloading the config file (this file)
-vim.keymap.set("n", "<leader>,", "<cmd>source $MYVIMRC<CR>", { desc = "Reload config" })
+-- Move current line up/down in Normal mode
+vim.keymap.set("n", "<S-Down>", ":m .+1<CR>", { desc = "Move line down" })
+vim.keymap.set("n", "<S-Up>", ":m .-2<CR>", { desc = "Move line up" })
+
+-- Move current line up/down in Insert mode
+vim.keymap.set("i", "<S-Down>", "<Esc>:m .+1<CR>gi", { desc = "Move line down" })
+vim.keymap.set("i", "<S-Up>", "<Esc>:m .-2<CR>gi", { desc = "Move line up" })
+
+-- Move visually selected blocks up/down with automatic re-selection
+vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+
+-- Reloading the config file (this file)
+vim.keymap.set("n", "<leader>,", "<cmd>source $MYVIMRC<CR>", { desc = "Reload config" })
 
 -- Easier binds to write and quit, work best when the CAPS key has been changed to send CTRL
 vim.keymap.set({ "i", "n" }, "<C-s>", "<Cmd>w<CR>", { desc = "Save file" })
@@ -86,7 +100,7 @@ vim.keymap.set("v", "<space>x", ":lua<CR>", { desc = "Source selected Lua" })
 vim.keymap.set("n", "<space>X", ":luafile %<CR>", { desc = "Source current Lua file" })
 
 -- Quick way to access Netrw, the native file manager
-vim.keymap.set("n", "<leader>-", ":Ex<CR>", { desc = "Open Netrw explorer" })
+-- vim.keymap.set("n", "<leader>-", ":Ex<CR>", { desc = "Open Netrw explorer" })
 
 ---- Resizing Splits
 vim.keymap.set("n", "<C-.>", "<cmd>vertical resize +5<CR>", { desc = "Increase split width" })
@@ -114,6 +128,8 @@ vim.keymap.set("n", "<leader>to", function()
 end, { desc = "Open Todos in Quickfix List" })
 -- The config for the working directory allows to be based on the current file, In the case that you moved to a different cwd than
 -- the one you entered vim from. ':h' also moved that one level up, so it will show the todos for the current file's directory.
+-- TODO: make this so that the comment string changes depending on the filetype
+vim.keymap.set("n", "<leader>ta", "i# TODO: ", { desc = "Adding a TODO and staying in insert mode" })
 
 ---- Diagnostics confNig.
 vim.diagnostic.config({
@@ -137,7 +153,7 @@ vim.keymap.set("n", "<leader>di", function()
     require("notify")("No diagnostics", "error", { title = "Diagnostics" })
     return
   end
-  vim.diagnostic.setloclist({ open = true })
+  vim.diagnostic.setqflist({ open = true })
 end, { desc = "Open diagnostics in loclist" })
 
 --- Database work with Dadbod
@@ -181,7 +197,7 @@ vim.cmd([[hi @function.call.python guifg=yellow]])
 vim.opt.foldmethod = "marker"
 vim.opt.foldmarker = "{{{,}}}"
 
--- Prevent code from auto-collapsing when opening a new buffer
+-- -- Prevent code from auto-collapsing when opening a new buffer
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 

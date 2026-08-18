@@ -1,5 +1,3 @@
-vim.opt_local.textwidth = 100 -- Use 100 columns as the width for manual formatting commands like gq.
-vim.opt_local.colorcolumn = "100" -- Show a visual guide at the 100-column limit.
 vim.opt_local.wrap = true -- Display long Markdown lines on multiple screen lines.
 vim.opt_local.linebreak = true -- Prefer wrapping at word boundaries instead of in the middle of words.
 vim.opt_local.breakindent = true -- Indent visually wrapped lines to match the start of the original line.
@@ -8,6 +6,7 @@ vim.opt_local.formatoptions:remove({ "t", "a" }) -- Disable automatic hard-wrapp
 vim.opt_local.spell = true -- Enable spell checking for Markdown buffers.
 vim.opt_local.scrolloff = 999 -- Keep the cursor vertically centered while scrolling.
 vim.opt_local.showbreak = "↪" -- Mark visually wrapped lines without changing the file contents.
+vim.opt_local.spelllang = { "en", "es" }
 ------------------------
 ---NOTEBOOK SPECIFIC ---
 ------------------------

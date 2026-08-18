@@ -14,11 +14,11 @@ return {
     },
 
     heading = {
-      width = "block",
       border = false,
+      width = "full",
       inline = true,
     },
-    dash = { width = 160 },
+    dash = { width = 100 },
     indent = { enabled = true, skip_heading = true },
     code = {
       sign = false,

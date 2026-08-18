@@ -22,6 +22,9 @@ return {
           prompt_title = "CONFIG",
         })
       end)
+      -- getting a nice word suggestion pop-up menu
+      vim.keymap.set("n", "<leader>zs", "<cmd>Telescope spell_suggest<cr>", { desc = "Spell suggestions" })
+
       -- Special picker to search my notes directory
       vim.keymap.set("n", "<leader>no", function()
         builtin.find_files({

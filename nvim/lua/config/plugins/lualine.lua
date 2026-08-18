@@ -41,7 +41,7 @@ return {
     local lsp = {
       "lsp_status",
       color = { gui = "italic", fg = colors.violet },
-      icon = "",
+      icon = " ",
       symbols = {
         -- Standard unicode symbols to cycle through for LSP progress:
         spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
