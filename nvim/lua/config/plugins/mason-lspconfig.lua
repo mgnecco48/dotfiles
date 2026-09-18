@@ -23,6 +23,7 @@ return {
         "vtsls",
         "tailwindcss",
         "postgres_lsp",
+        "html",
       },
     },
     dependencies = {

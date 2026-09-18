@@ -1,6 +1,8 @@
 -- ========================
 -- = MARTIN GNECCO CONFIG =
 -- ========================
+
+-- TODO: add the git work plugin
 -- TODO: place the notifications config properly in its own file
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -39,7 +41,7 @@ vim.opt.tabstop = 4
 vim.opt.smartindent = true
 vim.o.splitright = true
 vim.o.splitbelow = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.showbreak = "↪"

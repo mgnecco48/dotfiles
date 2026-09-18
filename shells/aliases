@@ -11,6 +11,9 @@ alias ....='cd ../../..'
 alias conf='cd ~/.config'
 alias dot='cd ~/dotfiles'
 
+#Activate uv venv, Must be in a directory where .venv exists
+alias venv="source .venv/bin/activate"
+
 # Tools
 alias oc='opencode --port'
 alias vim='nvim'
