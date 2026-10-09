@@ -64,6 +64,7 @@ require("notify").setup({
 vim.notify = require("notify")
 
 -- Syncs the system clipboard to Nvim's allowing to copy and paste to/from other applications
+require("vim.ui.clipboard.osc52")
 vim.o.clipboard = "unnamedplus"
 
 -- Making searching with '/' non-case sensitive
