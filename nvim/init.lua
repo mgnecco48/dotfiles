@@ -63,9 +63,23 @@ require("notify").setup({
 
 vim.notify = require("notify")
 
--- Syncs the system clipboard to Nvim's allowing to copy and paste to/from other applications
-require("vim.ui.clipboard.osc52")
-vim.o.clipboard = "unnamedplus"
+-- Configuring a clipboard provider in the case of working in a remote environment via SSH.
+-- This allows me to copy from the remote machine into the local machine's clipboard.
+if vim.env.SSH_TTY then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+  }
+  -- Syncs the system clipboard to Nvim's allowing to copy and paste to/from other applications
+  vim.opt.clipboard = "unnamedplus"
+end
 
 -- Making searching with '/' non-case sensitive
 vim.o.ignorecase = true
