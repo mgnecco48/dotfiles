@@ -7,7 +7,7 @@ vim.opt_local.spell = true -- Enable spell checking for Markdown buffers.
 vim.opt_local.scrolloff = 999 -- Keep the cursor vertically centered while scrolling.
 vim.opt_local.showbreak = "↪" -- Mark visually wrapped lines without changing the file contents.
 vim.opt_local.spelllang = { "en", "es" }
-vim.opt_local.textwidth = 80
+vim.opt_local.textwidth = 120
 ------------------------
 ---NOTEBOOK SPECIFIC ---
 ------------------------

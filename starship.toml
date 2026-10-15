@@ -1,14 +1,21 @@
+"$schema" = 'https://starship.rs/config-schema.json'
 add_newline = true
 command_timeout = 200
-format = "$directory$git_branch$git_status$python$hostname$character"
+format = '$directory$git_branch$git_status([$username🌎$hostname](bg:#223222))$python$character'
 
 [character]
 error_symbol = "[✗](bold red)"
 success_symbol = "[❯](bold green)"
 
+[username]
+show_always = false
+format = '\([$user]($style)'
+style_user = "bold cyan bg:#223222"
+style_root = "bold red"
+
 [hostname]
 ssh_only = true
-format = "[$hostname](italic fg:#ff8700) "
+format = '[$hostname](italic fg:#ff8700 bg:#223222)\)(bold cyan bg:#223222)'
 
 [directory]
 truncation_length = 3
