@@ -24,6 +24,7 @@ return {
         "tailwindcss",
         "postgres_lsp",
         "html",
+        "cssls",
       },
     },
     dependencies = {

@@ -8,7 +8,7 @@ return {
     opts = {
       lspFeatures = {
         enabled = true,
-        chunks = "curly",
+        chunks = "all",
       },
       codeRunner = {
         enabled = true,
