@@ -164,7 +164,7 @@ vim.keymap.set("n", "<leader>net", function()
     title = "Files",
     title_pos = "center",
   })
-  vim.g.netrw_banner = 0       -- Disable the netrw banner
+  vim.g.netrw_banner = 0 -- Disable the netrw banner
   vim.g.netrw_browse_split = 4 -- Open files in the previous window instead of the floating netrw window
   vim.g.netrw_chgwin = vim.fn.win_id2win(previous_window)
   vim.g.netrw_liststyle = 3
@@ -208,5 +208,6 @@ vim.keymap.set("n", "<leader>lu", ":Lazy update<CR>", { desc = "Update plugins w
 vim.keymap.set("n", "<leader>nc", function()
   vim.api.nvim_put({ "", "```python", "", "```", "" }, "l", true, true)
   vim.cmd("normal! 3k")
+  vim.cmd("norma! o")
   vim.cmd("startinsert")
 end, { desc = "New Python notebook cell" })
