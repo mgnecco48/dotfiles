@@ -16,7 +16,7 @@ alias ~='cd ~'
 alias venv="source .venv/bin/activate"
 
 # Tools
-alias oc='opencode --port'
+alias oc='opencode'
 alias vim='nvim'
 alias t='tmux attach || tmux new -s "NEW SESSION"'
 alias tnew='tmux new -s'
