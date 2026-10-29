@@ -207,7 +207,13 @@ vim.keymap.set("n", "<leader>lu", ":Lazy update<CR>", { desc = "Update plugins w
 -- Notebook cell helpers for Jupytext markdown notebooks
 vim.keymap.set("n", "<leader>nc", function()
   vim.api.nvim_put({ "", "```python", "", "```", "" }, "l", true, true)
-  vim.cmd("normal! 3k")
-  vim.cmd("norma! o")
-  vim.cmd("startinsert")
+  vim.cmd("normal! 2k")
+  vim.cmd("normal! i")
 end, { desc = "New Python notebook cell" })
+
+-- Helper to surround a line in print(), very useful when debugging
+vim.keymap.set("v", "<leader>pr", function()
+  vim.cmd.normal("c")
+  vim.cmd("put = 'print()'")
+  vim.cmd.normal("$hp")
+end, { remap = true, desc = "Wrap selection in print(<text>)" })
