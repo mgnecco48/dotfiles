@@ -10,10 +10,11 @@ vim.g.maplocalleader = " "
 -- Python host for Molten's remote plugin support.
 -- This is specific to my machine, change it to the path of your Python interpreter that is aware of
 -- your local virtual environments. Need this if you want to use Molten's Jupyter support.
-
-vim.g.python3_host_prog = "/opt/miniconda3/envs/nvim-jupyter/bin/python" -- for my mac, using conda to manage venvs
-
--- vim.g.python3_host_prog = "/home/martin/.venvs/nvim-jupyter/bin/python" --for linux, using uv to manage venvs
+if vim.fn.has("macunix") == 1 then
+  vim.g.python3_host_prog = "/opt/miniconda3/envs/nvim-jupyter/bin/python" -- for my mac, using conda to manage venvs
+elseif vim.fn.has("unix") == 1 then
+  vim.g.python3_host_prog = "/home/martin/.venvs/nvim-jupyter/bin/python" --for linux, using uv to manage venvs
+end
 
 -- disabling netrw because it conflicts with neotree
 vim.g.loaded_netrw = 1
