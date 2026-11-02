@@ -1,4 +1,4 @@
---------------------------
+--------------------------spe
 ---Advanced keymap file---
 --------------------------
 
@@ -207,8 +207,8 @@ vim.keymap.set("n", "<leader>lu", ":Lazy update<CR>", { desc = "Update plugins w
 -- Notebook cell helpers for Jupytext markdown notebooks
 vim.keymap.set("n", "<leader>nc", function()
   vim.api.nvim_put({ "", "```python", "", "```", "" }, "l", true, true)
-  vim.cmd("normal! 2k")
-  vim.cmd("normal! i")
+  vim.cmd("normal! 3k")
+  vim.cmd("startinsert")
 end, { desc = "New Python notebook cell" })
 
 -- Helper to surround a line in print(), very useful when debugging
