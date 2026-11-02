@@ -25,11 +25,11 @@ style = "italic purple"
 
 [git_status]
 format = '[$all_status$ahead_behind]($style)'
-ahead = "⇡${count} "
+ahead = "[⇡${count}](fg:#00ff7f) "
 diverged = "⇕⇡${ahead_count}⇣${behind_count} "
 behind = "⇣${count} "
 conflicted = " "
-up_to_date = "[](fg:#00ff7f) "
+up_to_date = "[ ](fg:#00ff7f)"
 untracked = "? "
 modified = " "
 stashed = ""
