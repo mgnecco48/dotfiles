@@ -1,7 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-add_newline = true
+
+
+add_newline = false
 command_timeout = 200
-format = '$directory$git_branch$git_status([$username:$hostname](italic fg:#ffe4b5 bg:#333333))$python$character'
+format = '$directory$git_branch$git_status([$username:$hostname](italic fg:#ffe4b5 bg:#333333))$python$conda$character'
 
 [character]
 error_symbol = "[✗](bold red)"
@@ -41,9 +43,11 @@ staged = ""
 renamed = ""
 deleted = ""
 
-# Add this section to explicitly handle the virtualenv name
 [python]
-format = '[\(🌱 $virtualenv\)](italic yellow) '
+format = '[\(🔆 $virtualenv\)](italic yellow) '
 detect_extensions = []
 detect_files = []
 detect_folders = []
+
+[conda]
+format = '[\(🐍 $environment\)](italic yellow) '
